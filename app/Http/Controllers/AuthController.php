@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Exeption;
 use App\User;
 
@@ -18,7 +19,7 @@ class AuthController extends Controller
                 'password' => 'required'
             ]);
 
-            if(!$token = Auth::attempt($credentials)){
+            if(!$token = JWTAuth::attempt($credentials)){
                 return response()->json([
                     'error' => 'Error in email or password',
                     'message' => 'Unauthorized'
@@ -38,6 +39,17 @@ class AuthController extends Controller
                 'error' => $error->getMessage()
             ])->setStatusCode(500);
 
+        }
+
+    }
+
+    public function getUser(){
+        try{
+
+            return response()->json(JWTAuth::user())->setStatusCode(200);
+        }catch(\Exception $error){
+
+            return false;
         }
 
     }
