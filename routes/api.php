@@ -20,6 +20,7 @@ Route::get('user', 'AuthController@getUser');
 
 Route::prefix('polls')->group(function () {
     Route::post('create', 'PollsController@createPoll');
+    Route::get('get/{id}', 'PollsController@getPoll');
 
 });
 

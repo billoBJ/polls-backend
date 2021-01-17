@@ -17,6 +17,15 @@ class Questions_Options extends Model
         'id','description','question_id'
     ];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'created_at','updated_at'
+    ];
+
     public function questions(){
 
         return $this->belongsTo('App\Questions');

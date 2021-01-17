@@ -93,6 +93,12 @@ class PollsController extends Controller
 
             $poll['questions'] = $poll->questions;
 
+            foreach($poll['questions'] as $key => $question){
+                $options = Questions_Options::where('question_id','=',$question->id)->get();
+                $question['options'] =  $options;
+                $poll['questions'] = $question;
+            }
+
             return response()->json($poll)->setStatusCode(200);
 
         }catch(\Exception $error){
