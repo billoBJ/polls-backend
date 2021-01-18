@@ -230,6 +230,45 @@ Response body:
   }
 ```
 
+### POST /api/answer  
+Create new User answer.  
+The user can make chose one option.  
+Example: http://localhost:8000/api/answer 
+
+Request body:
+```json
+ {
+    "poll_id": "21",
+    "answers": [
+        {
+            "question_id": "24",
+            "question_option": [
+                {
+                    "id": "16"
+                }
+            ]
+        },
+        {
+            "question_id": "25",
+            "question_option": [
+                {
+                    "id": "18"
+                }
+            ]
+        }
+    ]
+ }
+```
+
+
+Respond body:
+```json
+  {
+    "message": "The answers were saved successfully"
+  }
+```
+
+
 ### Installation
 ***
 Installation for localhost enviroment: 
