@@ -28,17 +28,23 @@ Loggin user into a plataform
 Example: http://localhost:8000/api/login
 
 Request body:
+```json
   {
     "email": "user1@test.com",
     "password": "test123"
   }
+```
 
 Response body:
+```json
   {
     "access_token": "TOKEN_GENERETED",
     "token_type": "Bearer",
     "expires_in": 86400
   }
+```
+
+
 ## Installation
 ***
 Installation for localhost enviroment: 
