@@ -164,6 +164,71 @@ Response body:
   } 
 ```
 
+### GET /api/polls/{id}
+Return Poll.  
+Only admin user can make the request  
+
+PARAM
+ - {id}: required | integer
+
+Response body:
+```json
+  {
+    "id": 21,
+    "name": "Test",
+    "description": "This is a poll test",
+    "enabled": "1",
+    "questions": [
+        {
+            "id": 24,
+            "polls_id": 21,
+            "description": "Question Nº1 ?",
+            "multiple_option": 0,
+            "options": [
+                {
+                    "id": 15,
+                    "question_id": 24,
+                    "description": "Option Nª 1"
+                },
+                {
+                    "id": 16,
+                    "question_id": 24,
+                    "description": "Option Nª 2"
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "polls_id": 21,
+            "description": "Question Nº1 ?",
+            "multiple_option": 0,
+            "options": [
+                {
+                    "id": 17,
+                    "question_id": 25,
+                    "description": "Option Nª 3"
+                },
+                {
+                    "id": 18,
+                    "question_id": 25,
+                    "description": "Option Nª 4"
+                },
+                {
+                    "id": 19,
+                    "question_id": 25,
+                    "description": "Option Nª 5"
+                },
+                {
+                    "id": 20,
+                    "question_id": 25,
+                    "description": "Option Nª 6"
+                }
+            ]
+        }
+    ]
+  }
+```
+
 ### Installation
 ***
 Installation for localhost enviroment: 
