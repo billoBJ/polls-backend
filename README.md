@@ -73,7 +73,7 @@ Response body:
 ```
 
 ### POST /api/polls
-Only User Admin can be created a new Poll 
+Only User Admin can be created a new Poll  
 Example: http://localhost:8000/api/polls
 
 Request body:
