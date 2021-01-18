@@ -8,7 +8,7 @@
 - [Additional Information](#additional-information)
 ### General Info
 ***
-This API is for Polls can be answered for authenticated user in the plataform. We have two types of Users, Admin user, and simple user. The Admin user, can create polls, and view polls by id, and a simple user can answers polls and update his answers only.
+This API creates Polls that can be answered by authenticated users in the plataform. We have two types of Users: Admin user, and regular user. The Admin user, can create polls, and view polls by id, and the regular user can only answers polls and update his answers
  
 ### Requirements
 - PHP >= 7.2.5
@@ -22,7 +22,7 @@ A list of technologies used within the project:
 
 ## Endpoints
 ***
-### Structure example for a Error Response 
+### Example structure for an Error Response 
 
 Error Response
 ```json
@@ -52,12 +52,12 @@ Response body:
     "expires_in": 86400
   }
 ```
-For the following endpoints, it is necessary that in the request header the authorization token
-- This ensures that the user is properly authenticated
+For the following endpoints, it is necessary to send the authorization token in the request header
+- This ensures that the user is properly authenticated.
 
 ```json
   {
-    "Authorization": "Bearer TOKEN_GENERETED",
+    "Authorization": "Bearer TOKEN_GENERATED",
   }
 ```
 ### Installation
