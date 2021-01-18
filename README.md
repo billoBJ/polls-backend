@@ -269,6 +269,36 @@ Respond body:
 ```
 
 
+### GET /api/polls/{poll_id}/answer
+Return User answers.  
+Each user can see their answers.  
+Example: http://localhost:8000/api/polls/21/answer
+
+PARAM
+ - {poll_id}: required | integer
+
+Respond body:
+```json
+ [
+    {
+        "id": 4,
+        "question_id": 24,
+        "question_option_id": 16,
+        "user_id": 4,
+        "question": "Question Nº1 ?",
+        "option": "Option Nª 2"
+    },
+    {
+        "id": 5,
+        "question_id": 25,
+        "question_option_id": 18,
+        "user_id": 4,
+        "question": "Question Nº1 ?",
+        "option": "Option Nª 4"
+    }
+ ]
+```
+
 ### Installation
 ***
 Installation for localhost enviroment: 
