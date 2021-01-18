@@ -33,7 +33,7 @@ Error Response
 ```
 
 ### POST /api/login
-Loggin user into a plataform
+Loggin user into a plataform.  
 Example: http://localhost:8000/api/login
 
 Request body:
@@ -62,7 +62,7 @@ For the following endpoints, it is necessary to send the authorization token in 
 ```
 
 ### POST /api/logout
-Invalidate the user's token.
+Invalidate the user's token.  
 Example: http://localhost:8000/api/logout
 
 Response body:
