@@ -299,6 +299,36 @@ Respond body:
  ]
 ```
 
+### PUT /api/answer
+Update User's answers.  
+Only the user who answered the survey has authorization to modify.  
+Example: http://localhost:8000/api/answer
+
+
+Request body:
+```json
+ [
+    {
+        "id": 4,
+        "question_id": 24,
+        "question_option_id": 15
+    },
+    {
+        "id": 5,
+        "question_id": 25,
+        "question_option_id": 20
+    }
+  ]
+```
+
+Response body:
+```json
+  {
+    "message": "Updated successfull."
+  }
+```
+
+
 ### Installation
 ***
 Installation for localhost enviroment: 
