@@ -47,7 +47,7 @@ Request body:
 Response body:
 ```json
   {
-    "access_token": "TOKEN_GENERETED",
+    "access_token": "TOKEN_GENERATED",
     "token_type": "Bearer",
     "expires_in": 86400
   }
