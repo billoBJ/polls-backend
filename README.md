@@ -27,16 +27,30 @@ Installation for localhost enviroment:
 ```
 # clone repository
 $ git clone https://github.com/billoBJ/polls-backend.git
-# go to repository foulder
-$ cd ../path/to/the/file
+
+# go to repository folder
+cd ../path/to/the/file
+
 # Install Packages
-$ composer install
+composer install
+
 # Generate APP_KEy
-$ php artisan key:generate
+php artisan key:generate
+
 # Generate JWT secret key
-$ php artisan jwt:secret
+php artisan jwt:secret
+
+# Set Database .env  configuration
+DB_CONNECTION=CONECTION_DRIVER
+DB_HOST=IP_HOST
+DB_PORT=PORT
+DB_DATABASE=YOUR_DATABSE_NAME
+DB_USERNAME=YOUR_DATABASE_USER
+DB_PASSWORD=YOUR_DATABASE_PASSWORD
+
 # Migrate DB tables
-$ php artisan migrate
+php artisan migrate
+
 # Run Seeds, this generate Admin User and Users 
-$ php artisan db:seed --class=UsersTableSeeder
+php artisan db:seed --class=UsersTableSeeder
 ```
