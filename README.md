@@ -166,7 +166,8 @@ Response body:
 
 ### GET /api/polls/{id}
 Return Poll.  
-Only admin user can make the request  
+Only admin user can make the request.  
+Example: http://localhost:8000/api/polls/21 
 
 PARAM
  - {id}: required | integer
