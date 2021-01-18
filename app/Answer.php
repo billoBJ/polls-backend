@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Questions_Options extends Model
+class Answer extends Model
 {
-    protected $table = 'questions_options';
+    protected $table = 'answers';
 
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class Questions_Options extends Model
      * @var array
      */
     protected $fillable = [
-        'id','description','question_id'
+        'id','question_id', 'question_option_id','user_id'
     ];
 
     /**
@@ -27,14 +27,20 @@ class Questions_Options extends Model
     ];
 
     //Relationships Models
-    public function questions(){
+    public function question(){
 
         return $this->belongsTo('App\Questions');
     }
 
-    public function answer(){
+    public function option(){
 
-        return $this->hasMany('App\Answer');
+        return $this->belongsTo('App\Questions_Options');
     }
+
+    public function user(){
+
+        return $this->belongsTo('App\User');
+    }
+
 
 }

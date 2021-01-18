@@ -26,6 +26,7 @@ class Polls extends Model
         'created_at','updated_at'
     ];
 
+    //Relationships Models
     public function questions(){
 
         return $this->hasMany('App\Questions');

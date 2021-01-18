@@ -24,3 +24,8 @@ Route::prefix('polls')->group(function () {
 
 });
 
+Route::prefix('answer')->group(function(){
+    Route::post('create/{poll_id}', 'AnswerController@createAnswer');
+    Route::get('get/{poll_id}', 'AnswerController@getUserAnswer');
+
+});

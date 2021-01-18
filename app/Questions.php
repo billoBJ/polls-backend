@@ -36,4 +36,9 @@ class Questions extends Model
 
         return $this->hasMany('App\Questions_Options');
     }
+
+    public function answer(){
+
+        return $this->hasMany('App\Answer');
+    }
 }
