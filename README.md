@@ -5,7 +5,7 @@
 - [Technologies](#technologies)
 - [Endpoints](#endpoints)
 - [Installation](#installation)
-- [Additional Information](#aditional-information)
+- [Additional Information](#additional-information)
 ### General Info
 ***
 This API is for Polls can be answered for authenticated user in the plataform. We have two types of Users, Admin user, and simple user. The Admin user, can create polls, and view polls by id, and a simp`e user can answers polls and update his answers only.
@@ -22,6 +22,15 @@ A list of technologies used within the project:
 
 ## Endpoints
 ***
+### Structure example for a Error Response 
+
+Error Response
+```json
+{
+    "message": "Error - Unauthorized",
+    "error": "The user must be logged in."
+}
+```
 
 ### POST /api/login
 Loggin user into a plataform
