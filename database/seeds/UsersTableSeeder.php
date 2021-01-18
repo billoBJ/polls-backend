@@ -16,6 +16,15 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@test.com',
             'admin' => 1,
             'password' => Hash::make('test123')
-          ]);
+        ]);
+
+        for ($i = 1; $i <= 3; $i++) {
+            DB::table('users')->insert([
+                'name' => 'User '.$i,
+                'email' => "user$i@test.com",
+                'admin' => 0,
+                'password' => Hash::make('test123')
+            ]);
+        }
     }
 }

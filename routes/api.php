@@ -14,17 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('login', 'AuthController@login');
-Route::post('logout', 'AuthController@logout');
-Route::get('user', 'AuthController@getUser');
+Route::post('logout', 'AuthController@logout')->middleware('api.JwtAuthenticate');
 
 
 Route::prefix('polls')->group(function () {
-    Route::post('create', 'PollsController@createPoll');
-    Route::get('get/{id}', 'PollsController@getPoll');
+    Route::post('create', 'PollsController@createPoll')->middleware(['api.JwtAuthenticate','api.AdminMiddleware']);
+    Route::get('get/{id}', 'PollsController@getPoll')->middleware(['api.JwtAuthenticate','api.AdminMiddleware']);
 
 });
 
-Route::group(['prefix' => 'answer', 'middleware' => ['api']],function(){
+Route::group(['middleware' => ['api.JwtAuthenticate' ], 'prefix' => 'answer'],function(){
     Route::post('create/{poll_id}', 'AnswerController@createAnswer');
     Route::get('get/{poll_id}', 'AnswerController@getUserAnswer');
     Route::post('update','AnswerController@updateUserAnswer');

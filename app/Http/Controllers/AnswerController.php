@@ -16,9 +16,13 @@ class AnswerController extends Controller
 
 
     public function __construct(){
+        $this->middleware('api.JwtAuthenticate');
 
-        $this->user_id = JWTAuth::user()->id;
-        $this->admin = JWTAuth::user()->admin;
+        if(!empty(JWTAuth::user())){
+            $this->user_id = JWTAuth::user()->id;
+            $this->admin = JWTAuth::user()->admin;
+        }
+
 
     }
 
