@@ -72,6 +72,98 @@ Response body:
   } 
 ```
 
+### POST /api/polls
+Only User Admin can be created a new Poll 
+Example: http://localhost:8000/api/polls
+
+Request body:
+```json
+  {
+    "polls": {
+        "name": "Test",
+        "description": "This is a poll test"
+    },
+    "questions": [
+        {
+            "description": "Question Nº1 ?",
+            "multiple_option": "0",
+            "options": [
+                {
+                    "description": "Option Nª 1"
+                },
+                {
+                    "description": "Option Nª 2"
+                }
+            ]
+        },
+        {
+            "description": "Question Nº2?",
+            "multiple_option": "0",
+            "options": [
+                {
+                    "description": "Option Nª 3"
+                },
+                {
+                    "description": "Option Nª 4"
+                },
+                {
+                    "description": "Option Nª 5"
+                },
+                {
+                    "description": "Option Nª 6"
+                }
+            ]
+        }
+    ]
+  }
+```
+
+
+Response body:
+```json
+  {
+    "message": "Poll was created",
+    "data": {
+        "polls": {
+            "name": "Test",
+            "description": "This is a poll test"
+        },
+        "questions": [
+            {
+                "description": "Question Nº1 ?",
+                "multiple_option": "0",
+                "options": [
+                    {
+                        "description": "Option Nª 1"
+                    },
+                    {
+                        "description": "Option Nª 2"
+                    }
+                ]
+            },
+            {
+                "description": "Question Nº1 ?",
+                "multiple_option": "0",
+                "options": [
+                    {
+                        "description": "Option Nª 3"
+                    },
+                    {
+                        "description": "Option Nª 4"
+                    },
+                    {
+                        "description": "Option Nª 5"
+                    },
+                    {
+                        "description": "Option Nª 6"
+                    }
+                ]
+            }
+        ]
+    }
+  } 
+```
+
 ### Installation
 ***
 Installation for localhost enviroment: 
