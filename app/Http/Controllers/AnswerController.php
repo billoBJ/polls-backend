@@ -34,14 +34,16 @@ class AnswerController extends Controller
      *
      * @return Response
      */
-    public function createAnswer(Request $request,$poll_id){
+    public function createAnswer(Request $request){
         try{
 
             $request->validate([
+                'poll_id' => 'required',
                 'answers.*.question_id' => 'required|integer',
                 'answers.*.question_option.*.id' => 'required',
             ]);
             $answers = $request['answers'];
+            $poll_id = $request['poll_id'];
 
             $questionsDB = Questions::where('polls_id','=',$poll_id)->get();
             $questions_count = $questionsDB->count();
@@ -128,6 +130,7 @@ class AnswerController extends Controller
      */
     public function updateUserAnswer(Request $request){
         try{
+
             $request->validate([
                 '*.id' => 'required|integer',
                 '*.question_id' => 'required|integer',

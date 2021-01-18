@@ -18,14 +18,15 @@ Route::post('logout', 'AuthController@logout')->middleware('api.JwtAuthenticate'
 
 
 Route::prefix('polls')->group(function () {
-    Route::post('create', 'PollsController@createPoll')->middleware(['api.JwtAuthenticate','api.AdminMiddleware']);
-    Route::get('get/{id}', 'PollsController@getPoll')->middleware(['api.JwtAuthenticate','api.AdminMiddleware']);
+    Route::post('/', 'PollsController@createPoll')->middleware(['api.JwtAuthenticate','api.AdminMiddleware']);
+    Route::get('/{id}', 'PollsController@getPoll')->middleware(['api.JwtAuthenticate','api.AdminMiddleware']);
+    Route::get('/{poll_id}/answer', 'AnswerController@getUserAnswer')->middleware(['api.JwtAuthenticate']);
 
 });
 
 Route::group(['middleware' => ['api.JwtAuthenticate' ], 'prefix' => 'answer'],function(){
-    Route::post('create/{poll_id}', 'AnswerController@createAnswer');
-    Route::get('get/{poll_id}', 'AnswerController@getUserAnswer');
-    Route::post('update','AnswerController@updateUserAnswer');
+    Route::post('/', 'AnswerController@createAnswer');
+    Route::get('/{poll_id}', 'AnswerController@getUserAnswer');
+    Route::put('/','AnswerController@updateUserAnswer');
 
 });

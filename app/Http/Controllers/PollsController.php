@@ -12,9 +12,6 @@ use App\Questions_Options;
 
 class PollsController extends Controller
 {
-    private function __constructor(){
-        null;
-    }
 
     /**
      * Create a new Poll
@@ -90,6 +87,13 @@ class PollsController extends Controller
     public function getPoll($id){
         try{
             $poll = Polls::find($id);
+
+            if(empty($poll) || $poll->count() === 0 ){
+                return response()->json([
+                    'message' => 'Data not Found.',
+                    'error' => 'No poll found.'
+                ])->setStatusCode(404);
+            }
 
             $poll['questions'] = $poll->questions;
 
