@@ -60,6 +60,18 @@ For the following endpoints, it is necessary to send the authorization token in 
     "Authorization": "Bearer TOKEN_GENERATED",
   }
 ```
+
+### POST /api/logout
+Invalidate the user's token.
+Example: http://localhost:8000/api/logout
+
+Response body:
+```json
+  {
+    "message": "Successfully logged out"
+  } 
+```
+
 ### Installation
 ***
 Installation for localhost enviroment: 
