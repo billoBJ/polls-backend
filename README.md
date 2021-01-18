@@ -59,8 +59,8 @@ For the following endpoints, it is necessary that in the request header the auth
   {
     "Authorization": "Bearer TOKEN_GENERETED",
   }
-
-## Installation
+```
+### Installation
 ***
 Installation for localhost enviroment: 
 ```
