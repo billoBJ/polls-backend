@@ -12,11 +12,13 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class AnswerController extends Controller
 {
     protected $user_id;
+    protected $admin;
 
 
     public function __construct(){
 
         $this->user_id = JWTAuth::user()->id;
+        $this->admin = JWTAuth::user()->admin;
 
     }
 
@@ -65,7 +67,7 @@ class AnswerController extends Controller
 
         }catch(\Exception $error){
             return response()->json([
-                'message' => 'Internal Error - Answer',
+                'message' => 'Internal Error - Create Answer',
                 'error' => $error->getMessage()
             ])->setStatusCode(500);
 
@@ -103,7 +105,7 @@ class AnswerController extends Controller
         }catch(\Exception $error){
 
             return response()->json([
-                'message' => 'Internal Error - Poll',
+                'message' => 'Internal Error - Get Answer',
                 'error' => $error->getMessage()
             ])->setStatusCode(500);
 
@@ -121,7 +123,43 @@ class AnswerController extends Controller
      * @return Response
      */
     public function updateUserAnswer(Request $request){
+        try{
+            $request->validate([
+                '*.id' => 'required|integer',
+                '*.question_id' => 'required|integer',
+                '*.question_option_id' => 'required|integer',
+            ]);
+            $answers = $request->all();
 
+            foreach($answers as $key => $answer){
+
+                $oldAnswer = Answer::find($answer['id']);
+                if($this->user_id !== $oldAnswer['user_id']){
+                    return response()->json([
+                        'message' => 'Unauthorized User - Update Answer',
+                        'error' => 'The user does not have authorization for the request.'
+                    ])->setStatusCode(403);
+                }
+
+                if( $answer['question_option_id'] !== $oldAnswer['question_option_id'] ){
+                    $oldAnswer->question_option_id = $answer['question_option_id'];
+                    $oldAnswer->save();
+                }
+
+            }
+
+
+            return response()->json([
+                'message' => 'Updated successfull.',
+            ])->setStatusCode(200);
+
+        }catch(\Exception $error){
+
+            return response()->json([
+                'message' => 'Internal Error - Update Answer',
+                'error' => $error->getMessage()
+            ])->setStatusCode(500);
+        }
 
     }
 

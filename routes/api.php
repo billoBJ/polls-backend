@@ -24,8 +24,9 @@ Route::prefix('polls')->group(function () {
 
 });
 
-Route::prefix('answer')->group(function(){
+Route::group(['prefix' => 'answer', 'middleware' => ['api']],function(){
     Route::post('create/{poll_id}', 'AnswerController@createAnswer');
     Route::get('get/{poll_id}', 'AnswerController@getUserAnswer');
+    Route::post('update','AnswerController@updateUserAnswer');
 
 });
