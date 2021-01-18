@@ -5,7 +5,7 @@
 - [Technologies](#technologies)
 - [Endpoints](#endpoints)
 - [Installation](#installation)
-- [Additional Information](#aditionalInformation)
+- [Additional Information](#aditional-information)
 ### General Info
 ***
 This API is for Polls can be answered for authenticated user in the plataform. We have two types of Users, Admin user, and simple user. The Admin user, can create polls, and view polls by id, and a simp`e user can answers polls and update his answers only.
@@ -22,6 +22,23 @@ A list of technologies used within the project:
 
 ## Endpoints
 ***
+
+### POST /api/login
+Loggin user into a plataform
+Example: http://localhost:8000/api/login
+
+Request body:
+  {
+    "email": "user1@test.com",
+    "password": "test123"
+  }
+
+Response body:
+  {
+    "access_token": "TOKEN_GENERETED",
+    "token_type": "Bearer",
+    "expires_in": 86400
+  }
 ## Installation
 ***
 Installation for localhost enviroment: 
@@ -56,7 +73,7 @@ php artisan migrate
 php artisan db:seed --class=UsersTableSeeder
 
 ```
-### Additional Informatio
+### Additional Information
 ***
 Users generated with seeders: 
 
