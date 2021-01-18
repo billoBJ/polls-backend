@@ -339,6 +339,9 @@ $ git clone https://github.com/billoBJ/polls-backend.git
 # go to repository folder
 cd ../path/to/the/file
 
+#copy .env.example to .env
+cp .env.example .env
+
 # Install Packages
 composer install
 
@@ -361,6 +364,13 @@ php artisan migrate
 
 # Run Seeds, this generate Admin User and Users  *see table user in Additional Information
 php artisan db:seed --class=UsersTableSeeder
+
+# Start localhost  
+php artisan serve 
+
+# Another way to start the localhost  "php -S {IPv4}:{PORT}"
+# cd public/
+php -S localhost:8000
 
 ```
 ### Additional Information
